@@ -1,0 +1,24 @@
+FROM node:16.18.1 as build
+
+# for node-canvas
+RUN apt update && apt install -y build-essential libcairo2-dev libpango1.0-dev \
+  libjpeg-dev libgif-dev librsvg2-dev
+
+RUN mkdir -p /usr/app
+WORKDIR /usr/app
+
+COPY --chown=node ./ .
+COPY --chown=node ./devtools/tasks/getMastercodeVersionFolderName-overwrite.js ./devtools/tasks/getMastercodeVersionFolderName.js
+
+RUN npm install
+RUN npm install http-server
+
+RUN npm run buildPortal
+
+FROM nginx
+
+COPY --from=build /usr/app/dist /usr/share/nginx/html
+
+EXPOSE 80
+
+#CMD [ "npx", "http-server", "-a", "0.0.0.0", "-p", "9001", "./dist" ]
