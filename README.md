@@ -1,4 +1,5 @@
 
+![Simulation Controller](https://github.com/citysciencelab/cut-masterportal-simulation-controller/assets/61881523/89f6e264-2c58-42a9-b386-4684aa4faf6e)
 
 # Simulation Controller Masterportal Add-On 
 The Simulation Controller is an inofficial Masterportal Add-On developed in the [Connected Urban Twins](https://www.connectedurbantwins.de/en/) project to connect the Masterportal to the [Urban Model Platform](https://github.com/citysciencelab/urban-model-platform) architecture. In order to understand the architecture of the Urban Model Platform, we refer to [its repository](https://github.com/citysciencelab/urban-model-platform).
